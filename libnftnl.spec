@@ -4,7 +4,7 @@
 #
 Name     : libnftnl
 Version  : 1.0.5
-Release  : 1
+Release  : 2
 URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.5.tar.bz2
 Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.5.tar.bz2
 Summary  : Netfilter nf_tables infrastructure library
