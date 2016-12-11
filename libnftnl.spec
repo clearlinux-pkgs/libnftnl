@@ -4,7 +4,7 @@
 #
 Name     : libnftnl
 Version  : 1.0.6
-Release  : 5
+Release  : 6
 URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.6.tar.bz2
 Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.6.tar.bz2
 Summary  : Netfilter nf_tables infrastructure library
@@ -38,6 +38,7 @@ lib components for the libnftnl package.
 %setup -q -n libnftnl-1.0.6
 
 %build
+export LANG=C
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -68,9 +69,10 @@ rm -rf %{buildroot}
 /usr/include/libnftnl/table.h
 /usr/include/libnftnl/trace.h
 /usr/include/libnftnl/udata.h
-/usr/lib64/*.so
-/usr/lib64/pkgconfig/*.pc
+/usr/lib64/libnftnl.so
+/usr/lib64/pkgconfig/libnftnl.pc
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/*.so.*
+/usr/lib64/libnftnl.so.4
+/usr/lib64/libnftnl.so.4.1.0
