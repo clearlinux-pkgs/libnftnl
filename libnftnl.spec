@@ -4,13 +4,19 @@
 #
 Name     : libnftnl
 Version  : 1.0.6
-Release  : 6
+Release  : 7
 URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.6.tar.bz2
 Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.6.tar.bz2
 Summary  : Netfilter nf_tables infrastructure library
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: libnftnl-lib
+BuildRequires : gcc-dev32
+BuildRequires : gcc-libgcc32
+BuildRequires : gcc-libstdc++32
+BuildRequires : glibc-dev32
+BuildRequires : glibc-libc32
+BuildRequires : pkgconfig(32libmnl)
 BuildRequires : pkgconfig(libmnl)
 
 %description
@@ -26,6 +32,15 @@ Provides: libnftnl-devel
 dev components for the libnftnl package.
 
 
+%package dev32
+Summary: dev32 components for the libnftnl package.
+Group: Default
+Requires: libnftnl-lib32
+
+%description dev32
+dev32 components for the libnftnl package.
+
+
 %package lib
 Summary: lib components for the libnftnl package.
 Group: Libraries
@@ -34,14 +49,32 @@ Group: Libraries
 lib components for the libnftnl package.
 
 
+%package lib32
+Summary: lib32 components for the libnftnl package.
+Group: Default
+
+%description lib32
+lib32 components for the libnftnl package.
+
+
 %prep
 %setup -q -n libnftnl-1.0.6
+pushd ..
+cp -a libnftnl-1.0.6 build32
+popd
 
 %build
 export LANG=C
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
+pushd ../build32/
+export CFLAGS="$CFLAGS -m32"
+export CXXFLAGS="$CXXFLAGS -m32"
+export LDFLAGS="$LDFLAGS -m32"
+%configure --disable-static   --libdir=/usr/lib32 --build=i686-generic-linux-gnu --host=i686-generic-linux-gnu --target=i686-clr-linux-gnu
+make V=1  %{?_smp_mflags}
+popd
 %check
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
@@ -51,6 +84,15 @@ make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
 rm -rf %{buildroot}
+pushd ../build32/
+%make_install32
+if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
+then
+pushd %{buildroot}/usr/lib32/pkgconfig
+for i in *.pc ; do mv $i 32$i ; done
+popd
+fi
+popd
 %make_install
 
 %files
@@ -72,7 +114,17 @@ rm -rf %{buildroot}
 /usr/lib64/libnftnl.so
 /usr/lib64/pkgconfig/libnftnl.pc
 
+%files dev32
+%defattr(-,root,root,-)
+/usr/lib32/libnftnl.so
+/usr/lib32/pkgconfig/32libnftnl.pc
+
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libnftnl.so.4
 /usr/lib64/libnftnl.so.4.1.0
+
+%files lib32
+%defattr(-,root,root,-)
+/usr/lib32/libnftnl.so.4
+/usr/lib32/libnftnl.so.4.1.0
