@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xAB4655A126D292E4 (coreteam@netfilter.org)
 #
 Name     : libnftnl
-Version  : 1.0.8
-Release  : 10
-URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.8.tar.bz2
-Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.8.tar.bz2
-Source99 : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.8.tar.bz2.sig
+Version  : 1.0.9
+Release  : 11
+URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.9.tar.bz2
+Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.9.tar.bz2
+Source99 : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.9.tar.bz2.sig
 Summary  : Netfilter nf_tables infrastructure library
 Group    : Development/Tools
 License  : GPL-2.0
@@ -62,9 +62,9 @@ lib32 components for the libnftnl package.
 
 
 %prep
-%setup -q -n libnftnl-1.0.8
+%setup -q -n libnftnl-1.0.9
 pushd ..
-cp -a libnftnl-1.0.8 build32
+cp -a libnftnl-1.0.9 build32
 popd
 
 %build
@@ -72,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1511140492
+export SOURCE_DATE_EPOCH=1514929100
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -92,7 +92,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1511140492
+export SOURCE_DATE_EPOCH=1514929100
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
@@ -134,9 +134,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libnftnl.so.7
-/usr/lib64/libnftnl.so.7.0.0
+/usr/lib64/libnftnl.so.7.1.0
 
 %files lib32
 %defattr(-,root,root,-)
 /usr/lib32/libnftnl.so.7
-/usr/lib32/libnftnl.so.7.0.0
+/usr/lib32/libnftnl.so.7.1.0

@@ -1,4 +1,5 @@
 libnftnl.so.7:LIBNFTNL_5
+libnftnl.so.7:LIBNFTNL_6
 libnftnl.so.7:nftnl_batch_alloc
 libnftnl.so.7:nftnl_batch_begin
 libnftnl.so.7:nftnl_batch_buffer
@@ -46,6 +47,7 @@ libnftnl.so.7:nftnl_chain_unset
 libnftnl.so.7:nftnl_expr_alloc
 libnftnl.so.7:nftnl_expr_cmp
 libnftnl.so.7:nftnl_expr_foreach
+libnftnl.so.7:nftnl_expr_fprintf
 libnftnl.so.7:nftnl_expr_free
 libnftnl.so.7:nftnl_expr_get
 libnftnl.so.7:nftnl_expr_get_str
