@@ -6,7 +6,7 @@
 #
 Name     : libnftnl
 Version  : 1.0.9
-Release  : 12
+Release  : 13
 URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.9.tar.bz2
 Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.9.tar.bz2
 Source99 : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.9.tar.bz2.sig
