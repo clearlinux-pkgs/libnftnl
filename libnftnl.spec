@@ -5,20 +5,22 @@
 # Source0 file verified with key 0xAB4655A126D292E4 (coreteam@netfilter.org)
 #
 Name     : libnftnl
-Version  : 1.0.9
-Release  : 13
-URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.9.tar.bz2
-Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.9.tar.bz2
-Source99 : http://netfilter.org/projects/libnftnl/files/libnftnl-1.0.9.tar.bz2.sig
+Version  : 1.1.1
+Release  : 14
+URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.1.tar.bz2
+Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.1.tar.bz2
+Source99 : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.1.tar.bz2.sig
 Summary  : Netfilter nf_tables infrastructure library
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: libnftnl-lib
+Requires: libnftnl-license
 BuildRequires : gcc-dev32
 BuildRequires : gcc-libgcc32
 BuildRequires : gcc-libstdc++32
 BuildRequires : glibc-dev32
 BuildRequires : glibc-libc32
+BuildRequires : pkg-config
 BuildRequires : pkgconfig(32libmnl)
 BuildRequires : pkgconfig(libmnl)
 
@@ -48,6 +50,7 @@ dev32 components for the libnftnl package.
 %package lib
 Summary: lib components for the libnftnl package.
 Group: Libraries
+Requires: libnftnl-license
 
 %description lib
 lib components for the libnftnl package.
@@ -56,15 +59,24 @@ lib components for the libnftnl package.
 %package lib32
 Summary: lib32 components for the libnftnl package.
 Group: Default
+Requires: libnftnl-license
 
 %description lib32
 lib32 components for the libnftnl package.
 
 
+%package license
+Summary: license components for the libnftnl package.
+Group: Default
+
+%description license
+license components for the libnftnl package.
+
+
 %prep
-%setup -q -n libnftnl-1.0.9
+%setup -q -n libnftnl-1.1.1
 pushd ..
-cp -a libnftnl-1.0.9 build32
+cp -a libnftnl-1.1.1 build32
 popd
 
 %build
@@ -72,7 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1514929100
+export SOURCE_DATE_EPOCH=1533743099
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -92,8 +104,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1514929100
+export SOURCE_DATE_EPOCH=1533743099
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/libnftnl
+cp COPYING %{buildroot}/usr/share/doc/libnftnl/COPYING
 pushd ../build32/
 %make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
@@ -114,6 +128,7 @@ popd
 /usr/include/libnftnl/chain.h
 /usr/include/libnftnl/common.h
 /usr/include/libnftnl/expr.h
+/usr/include/libnftnl/flowtable.h
 /usr/include/libnftnl/gen.h
 /usr/include/libnftnl/object.h
 /usr/include/libnftnl/rule.h
@@ -134,9 +149,13 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libnftnl.so.7
-/usr/lib64/libnftnl.so.7.1.0
+/usr/lib64/libnftnl.so.7.3.0
 
 %files lib32
 %defattr(-,root,root,-)
 /usr/lib32/libnftnl.so.7
-/usr/lib32/libnftnl.so.7.1.0
+/usr/lib32/libnftnl.so.7.3.0
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/libnftnl/COPYING
