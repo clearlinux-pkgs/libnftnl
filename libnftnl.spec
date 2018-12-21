@@ -5,16 +5,16 @@
 # Source0 file verified with key 0xAB4655A126D292E4 (coreteam@netfilter.org)
 #
 Name     : libnftnl
-Version  : 1.1.1
-Release  : 14
-URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.1.tar.bz2
-Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.1.tar.bz2
-Source99 : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.1.tar.bz2.sig
+Version  : 1.1.2
+Release  : 15
+URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.2.tar.bz2
+Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.2.tar.bz2
+Source99 : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.2.tar.bz2.sig
 Summary  : Netfilter nf_tables infrastructure library
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: libnftnl-lib
-Requires: libnftnl-license
+Requires: libnftnl-lib = %{version}-%{release}
+Requires: libnftnl-license = %{version}-%{release}
 BuildRequires : gcc-dev32
 BuildRequires : gcc-libgcc32
 BuildRequires : gcc-libstdc++32
@@ -30,8 +30,8 @@ No detailed description available
 %package dev
 Summary: dev components for the libnftnl package.
 Group: Development
-Requires: libnftnl-lib
-Provides: libnftnl-devel
+Requires: libnftnl-lib = %{version}-%{release}
+Provides: libnftnl-devel = %{version}-%{release}
 
 %description dev
 dev components for the libnftnl package.
@@ -40,8 +40,8 @@ dev components for the libnftnl package.
 %package dev32
 Summary: dev32 components for the libnftnl package.
 Group: Default
-Requires: libnftnl-lib32
-Requires: libnftnl-dev
+Requires: libnftnl-lib32 = %{version}-%{release}
+Requires: libnftnl-dev = %{version}-%{release}
 
 %description dev32
 dev32 components for the libnftnl package.
@@ -50,7 +50,7 @@ dev32 components for the libnftnl package.
 %package lib
 Summary: lib components for the libnftnl package.
 Group: Libraries
-Requires: libnftnl-license
+Requires: libnftnl-license = %{version}-%{release}
 
 %description lib
 lib components for the libnftnl package.
@@ -59,7 +59,7 @@ lib components for the libnftnl package.
 %package lib32
 Summary: lib32 components for the libnftnl package.
 Group: Default
-Requires: libnftnl-license
+Requires: libnftnl-license = %{version}-%{release}
 
 %description lib32
 lib32 components for the libnftnl package.
@@ -74,9 +74,9 @@ license components for the libnftnl package.
 
 
 %prep
-%setup -q -n libnftnl-1.1.1
+%setup -q -n libnftnl-1.1.2
 pushd ..
-cp -a libnftnl-1.1.1 build32
+cp -a libnftnl-1.1.2 build32
 popd
 
 %build
@@ -84,12 +84,13 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1533743099
+export SOURCE_DATE_EPOCH=1545403977
 %configure --disable-static
 make  %{?_smp_mflags}
 
 pushd ../build32/
 export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
+export ASFLAGS="$ASFLAGS --32"
 export CFLAGS="$CFLAGS -m32"
 export CXXFLAGS="$CXXFLAGS -m32"
 export LDFLAGS="$LDFLAGS -m32"
@@ -102,12 +103,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
+cd ../build32;
+make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1533743099
+export SOURCE_DATE_EPOCH=1545403977
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/libnftnl
-cp COPYING %{buildroot}/usr/share/doc/libnftnl/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/libnftnl
+cp COPYING %{buildroot}/usr/share/package-licenses/libnftnl/COPYING
 pushd ../build32/
 %make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
@@ -148,14 +151,14 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libnftnl.so.7
-/usr/lib64/libnftnl.so.7.3.0
+/usr/lib64/libnftnl.so.11
+/usr/lib64/libnftnl.so.11.0.0
 
 %files lib32
 %defattr(-,root,root,-)
-/usr/lib32/libnftnl.so.7
-/usr/lib32/libnftnl.so.7.3.0
+/usr/lib32/libnftnl.so.11
+/usr/lib32/libnftnl.so.11.0.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/libnftnl/COPYING
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/libnftnl/COPYING
