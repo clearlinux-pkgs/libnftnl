@@ -1,4 +1,5 @@
 libnftnl.so.11:LIBNFTNL_11
+libnftnl.so.11:LIBNFTNL_12
 libnftnl.so.11:nftnl_batch_alloc
 libnftnl.so.11:nftnl_batch_begin
 libnftnl.so.11:nftnl_batch_buffer
@@ -30,8 +31,14 @@ libnftnl.so.11:nftnl_chain_list_is_empty
 libnftnl.so.11:nftnl_chain_list_iter_create
 libnftnl.so.11:nftnl_chain_list_iter_destroy
 libnftnl.so.11:nftnl_chain_list_iter_next
+libnftnl.so.11:nftnl_chain_list_lookup_byname
 libnftnl.so.11:nftnl_chain_nlmsg_build_payload
 libnftnl.so.11:nftnl_chain_nlmsg_parse
+libnftnl.so.11:nftnl_chain_rule_add
+libnftnl.so.11:nftnl_chain_rule_add_tail
+libnftnl.so.11:nftnl_chain_rule_append_at
+libnftnl.so.11:nftnl_chain_rule_del
+libnftnl.so.11:nftnl_chain_rule_insert_at
 libnftnl.so.11:nftnl_chain_set
 libnftnl.so.11:nftnl_chain_set_data
 libnftnl.so.11:nftnl_chain_set_s32
@@ -90,8 +97,16 @@ libnftnl.so.11:nftnl_flowtable_unset
 libnftnl.so.11:nftnl_gen_alloc
 libnftnl.so.11:nftnl_gen_fprintf
 libnftnl.so.11:nftnl_gen_free
+libnftnl.so.11:nftnl_gen_get
+libnftnl.so.11:nftnl_gen_get_data
+libnftnl.so.11:nftnl_gen_get_u32
+libnftnl.so.11:nftnl_gen_is_set
 libnftnl.so.11:nftnl_gen_nlmsg_parse
+libnftnl.so.11:nftnl_gen_set
+libnftnl.so.11:nftnl_gen_set_data
+libnftnl.so.11:nftnl_gen_set_u32
 libnftnl.so.11:nftnl_gen_snprintf
+libnftnl.so.11:nftnl_gen_unset
 libnftnl.so.11:nftnl_nlmsg_build_hdr
 libnftnl.so.11:nftnl_obj_alloc
 libnftnl.so.11:nftnl_obj_fprintf
@@ -129,6 +144,7 @@ libnftnl.so.11:nftnl_parse_err_free
 libnftnl.so.11:nftnl_parse_perror
 libnftnl.so.11:nftnl_rule_add_expr
 libnftnl.so.11:nftnl_rule_alloc
+libnftnl.so.11:nftnl_rule_foreach
 libnftnl.so.11:nftnl_rule_fprintf
 libnftnl.so.11:nftnl_rule_free
 libnftnl.so.11:nftnl_rule_get
@@ -138,6 +154,9 @@ libnftnl.so.11:nftnl_rule_get_u32
 libnftnl.so.11:nftnl_rule_get_u64
 libnftnl.so.11:nftnl_rule_get_u8
 libnftnl.so.11:nftnl_rule_is_set
+libnftnl.so.11:nftnl_rule_iter_create
+libnftnl.so.11:nftnl_rule_iter_destroy
+libnftnl.so.11:nftnl_rule_iter_next
 libnftnl.so.11:nftnl_rule_list_add
 libnftnl.so.11:nftnl_rule_list_add_tail
 libnftnl.so.11:nftnl_rule_list_alloc
@@ -150,6 +169,7 @@ libnftnl.so.11:nftnl_rule_list_iter_create
 libnftnl.so.11:nftnl_rule_list_iter_cur
 libnftnl.so.11:nftnl_rule_list_iter_destroy
 libnftnl.so.11:nftnl_rule_list_iter_next
+libnftnl.so.11:nftnl_rule_lookup_byindex
 libnftnl.so.11:nftnl_rule_nlmsg_build_payload
 libnftnl.so.11:nftnl_rule_nlmsg_parse
 libnftnl.so.11:nftnl_rule_parse
