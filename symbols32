@@ -1,5 +1,6 @@
 libnftnl.so.11:LIBNFTNL_11
 libnftnl.so.11:LIBNFTNL_12
+libnftnl.so.11:LIBNFTNL_13
 libnftnl.so.11:nftnl_batch_alloc
 libnftnl.so.11:nftnl_batch_begin
 libnftnl.so.11:nftnl_batch_buffer
@@ -76,6 +77,7 @@ libnftnl.so.11:nftnl_flowtable_get
 libnftnl.so.11:nftnl_flowtable_get_s32
 libnftnl.so.11:nftnl_flowtable_get_str
 libnftnl.so.11:nftnl_flowtable_get_u32
+libnftnl.so.11:nftnl_flowtable_get_u64
 libnftnl.so.11:nftnl_flowtable_is_set
 libnftnl.so.11:nftnl_flowtable_list_add
 libnftnl.so.11:nftnl_flowtable_list_add_tail
@@ -89,9 +91,11 @@ libnftnl.so.11:nftnl_flowtable_nlmsg_parse
 libnftnl.so.11:nftnl_flowtable_parse
 libnftnl.so.11:nftnl_flowtable_parse_file
 libnftnl.so.11:nftnl_flowtable_set
+libnftnl.so.11:nftnl_flowtable_set_data
 libnftnl.so.11:nftnl_flowtable_set_s32
 libnftnl.so.11:nftnl_flowtable_set_str
 libnftnl.so.11:nftnl_flowtable_set_u32
+libnftnl.so.11:nftnl_flowtable_set_u64
 libnftnl.so.11:nftnl_flowtable_snprintf
 libnftnl.so.11:nftnl_flowtable_unset
 libnftnl.so.11:nftnl_gen_alloc
@@ -133,6 +137,7 @@ libnftnl.so.11:nftnl_obj_nlmsg_parse
 libnftnl.so.11:nftnl_obj_parse
 libnftnl.so.11:nftnl_obj_parse_file
 libnftnl.so.11:nftnl_obj_set
+libnftnl.so.11:nftnl_obj_set_data
 libnftnl.so.11:nftnl_obj_set_str
 libnftnl.so.11:nftnl_obj_set_u16
 libnftnl.so.11:nftnl_obj_set_u32
@@ -241,6 +246,7 @@ libnftnl.so.11:nftnl_set_list_iter_create
 libnftnl.so.11:nftnl_set_list_iter_cur
 libnftnl.so.11:nftnl_set_list_iter_destroy
 libnftnl.so.11:nftnl_set_list_iter_next
+libnftnl.so.11:nftnl_set_list_lookup_byname
 libnftnl.so.11:nftnl_set_nlmsg_build_payload
 libnftnl.so.11:nftnl_set_nlmsg_parse
 libnftnl.so.11:nftnl_set_parse
