@@ -1,6 +1,7 @@
 libnftnl.so.11:LIBNFTNL_11
 libnftnl.so.11:LIBNFTNL_12
 libnftnl.so.11:LIBNFTNL_13
+libnftnl.so.11:LIBNFTNL_14
 libnftnl.so.11:nftnl_batch_alloc
 libnftnl.so.11:nftnl_batch_begin
 libnftnl.so.11:nftnl_batch_buffer
@@ -15,6 +16,7 @@ libnftnl.so.11:nftnl_chain_alloc
 libnftnl.so.11:nftnl_chain_fprintf
 libnftnl.so.11:nftnl_chain_free
 libnftnl.so.11:nftnl_chain_get
+libnftnl.so.11:nftnl_chain_get_array
 libnftnl.so.11:nftnl_chain_get_data
 libnftnl.so.11:nftnl_chain_get_s32
 libnftnl.so.11:nftnl_chain_get_str
@@ -41,6 +43,7 @@ libnftnl.so.11:nftnl_chain_rule_append_at
 libnftnl.so.11:nftnl_chain_rule_del
 libnftnl.so.11:nftnl_chain_rule_insert_at
 libnftnl.so.11:nftnl_chain_set
+libnftnl.so.11:nftnl_chain_set_array
 libnftnl.so.11:nftnl_chain_set_data
 libnftnl.so.11:nftnl_chain_set_s32
 libnftnl.so.11:nftnl_chain_set_str
@@ -74,6 +77,7 @@ libnftnl.so.11:nftnl_flowtable_alloc
 libnftnl.so.11:nftnl_flowtable_fprintf
 libnftnl.so.11:nftnl_flowtable_free
 libnftnl.so.11:nftnl_flowtable_get
+libnftnl.so.11:nftnl_flowtable_get_array
 libnftnl.so.11:nftnl_flowtable_get_s32
 libnftnl.so.11:nftnl_flowtable_get_str
 libnftnl.so.11:nftnl_flowtable_get_u32
@@ -91,6 +95,7 @@ libnftnl.so.11:nftnl_flowtable_nlmsg_parse
 libnftnl.so.11:nftnl_flowtable_parse
 libnftnl.so.11:nftnl_flowtable_parse_file
 libnftnl.so.11:nftnl_flowtable_set
+libnftnl.so.11:nftnl_flowtable_set_array
 libnftnl.so.11:nftnl_flowtable_set_data
 libnftnl.so.11:nftnl_flowtable_set_s32
 libnftnl.so.11:nftnl_flowtable_set_str
@@ -308,6 +313,8 @@ libnftnl.so.11:nftnl_udata_end
 libnftnl.so.11:nftnl_udata_get
 libnftnl.so.11:nftnl_udata_get_u32
 libnftnl.so.11:nftnl_udata_len
+libnftnl.so.11:nftnl_udata_nest_end
+libnftnl.so.11:nftnl_udata_nest_start
 libnftnl.so.11:nftnl_udata_next
 libnftnl.so.11:nftnl_udata_parse
 libnftnl.so.11:nftnl_udata_put
