@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xAB4655A126D292E4 (coreteam@netfilter.org)
 #
 Name     : libnftnl
-Version  : 1.1.6
-Release  : 19
-URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.6.tar.bz2
-Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.6.tar.bz2
-Source1  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.6.tar.bz2.sig
+Version  : 1.1.7
+Release  : 20
+URL      : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.7.tar.bz2
+Source0  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.7.tar.bz2
+Source1  : http://netfilter.org/projects/libnftnl/files/libnftnl-1.1.7.tar.bz2.sig
 Summary  : Netfilter nf_tables infrastructure library
 Group    : Development/Tools
 License  : GPL-2.0
@@ -32,7 +32,6 @@ Summary: dev components for the libnftnl package.
 Group: Development
 Requires: libnftnl-lib = %{version}-%{release}
 Provides: libnftnl-devel = %{version}-%{release}
-Requires: libnftnl = %{version}-%{release}
 Requires: libnftnl = %{version}-%{release}
 
 %description dev
@@ -76,10 +75,10 @@ license components for the libnftnl package.
 
 
 %prep
-%setup -q -n libnftnl-1.1.6
-cd %{_builddir}/libnftnl-1.1.6
+%setup -q -n libnftnl-1.1.7
+cd %{_builddir}/libnftnl-1.1.7
 pushd ..
-cp -a libnftnl-1.1.6 build32
+cp -a libnftnl-1.1.7 build32
 popd
 
 %build
@@ -87,15 +86,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585928400
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1591372181
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -119,10 +117,10 @@ cd ../build32;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1585928400
+export SOURCE_DATE_EPOCH=1591372181
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libnftnl
-cp %{_builddir}/libnftnl-1.1.6/COPYING %{buildroot}/usr/share/package-licenses/libnftnl/d6458d52bfead6f1399b865f1aeea0caa639ef6c
+cp %{_builddir}/libnftnl-1.1.7/COPYING %{buildroot}/usr/share/package-licenses/libnftnl/d6458d52bfead6f1399b865f1aeea0caa639ef6c
 pushd ../build32/
 %make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
