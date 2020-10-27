@@ -2,6 +2,7 @@ libnftnl.so.11:LIBNFTNL_11
 libnftnl.so.11:LIBNFTNL_12
 libnftnl.so.11:LIBNFTNL_13
 libnftnl.so.11:LIBNFTNL_14
+libnftnl.so.11:LIBNFTNL_15
 libnftnl.so.11:nftnl_batch_alloc
 libnftnl.so.11:nftnl_batch_begin
 libnftnl.so.11:nftnl_batch_buffer
@@ -53,6 +54,7 @@ libnftnl.so.11:nftnl_chain_set_u8
 libnftnl.so.11:nftnl_chain_snprintf
 libnftnl.so.11:nftnl_chain_unset
 libnftnl.so.11:nftnl_expr_alloc
+libnftnl.so.11:nftnl_expr_build_payload
 libnftnl.so.11:nftnl_expr_foreach
 libnftnl.so.11:nftnl_expr_fprintf
 libnftnl.so.11:nftnl_expr_free
@@ -121,6 +123,7 @@ libnftnl.so.11:nftnl_obj_alloc
 libnftnl.so.11:nftnl_obj_fprintf
 libnftnl.so.11:nftnl_obj_free
 libnftnl.so.11:nftnl_obj_get
+libnftnl.so.11:nftnl_obj_get_data
 libnftnl.so.11:nftnl_obj_get_str
 libnftnl.so.11:nftnl_obj_get_u16
 libnftnl.so.11:nftnl_obj_get_u32
@@ -154,6 +157,7 @@ libnftnl.so.11:nftnl_parse_err_free
 libnftnl.so.11:nftnl_parse_perror
 libnftnl.so.11:nftnl_rule_add_expr
 libnftnl.so.11:nftnl_rule_alloc
+libnftnl.so.11:nftnl_rule_del_expr
 libnftnl.so.11:nftnl_rule_foreach
 libnftnl.so.11:nftnl_rule_fprintf
 libnftnl.so.11:nftnl_rule_free
@@ -211,6 +215,7 @@ libnftnl.so.11:nftnl_set_alloc
 libnftnl.so.11:nftnl_set_elem_add
 libnftnl.so.11:nftnl_set_elem_alloc
 libnftnl.so.11:nftnl_set_elem_foreach
+libnftnl.so.11:nftnl_set_elem_fprintf
 libnftnl.so.11:nftnl_set_elem_free
 libnftnl.so.11:nftnl_set_elem_get
 libnftnl.so.11:nftnl_set_elem_get_str
