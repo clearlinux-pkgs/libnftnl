@@ -230,6 +230,7 @@ libnftnl.so.11:nftnl_set_elem_get_u32
 libnftnl.so.11:nftnl_set_elem_get_u64
 libnftnl.so.11:nftnl_set_elem_is_set
 libnftnl.so.11:nftnl_set_elem_nlmsg_build
+libnftnl.so.11:nftnl_set_elem_nlmsg_build_payload
 libnftnl.so.11:nftnl_set_elem_parse
 libnftnl.so.11:nftnl_set_elem_parse_file
 libnftnl.so.11:nftnl_set_elem_set
