@@ -6,7 +6,7 @@
 #
 Name     : libnftnl
 Version  : 1.2.4
-Release  : 28
+Release  : 29
 URL      : https://netfilter.org/projects/libnftnl/files/libnftnl-1.2.4.tar.bz2
 Source0  : https://netfilter.org/projects/libnftnl/files/libnftnl-1.2.4.tar.bz2
 Source1  : https://netfilter.org/projects/libnftnl/files/libnftnl-1.2.4.tar.bz2.sig
