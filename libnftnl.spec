@@ -6,7 +6,7 @@
 #
 Name     : libnftnl
 Version  : 1.2.4
-Release  : 29
+Release  : 30
 URL      : https://netfilter.org/projects/libnftnl/files/libnftnl-1.2.4.tar.bz2
 Source0  : https://netfilter.org/projects/libnftnl/files/libnftnl-1.2.4.tar.bz2
 Source1  : https://netfilter.org/projects/libnftnl/files/libnftnl-1.2.4.tar.bz2.sig
@@ -23,7 +23,6 @@ BuildRequires : glibc-libc32
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(32libmnl)
 BuildRequires : pkgconfig(libmnl)
-BuildRequires : gcc-libubsan gcc-staticdev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -90,18 +89,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1672416496
+export SOURCE_DATE_EPOCH=1672756822
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -ggdb -gno-column-info -gno-variable-location-views -gz -fsanitize=address "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export LIBS=-lasan
-export LD_LIBS=-lasan
-
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -124,7 +120,7 @@ cd ../build32;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1672416496
+export SOURCE_DATE_EPOCH=1672756822
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libnftnl
 cp %{_builddir}/libnftnl-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libnftnl/d6458d52bfead6f1399b865f1aeea0caa639ef6c || :
